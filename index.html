@@ -83,7 +83,7 @@
     font-weight: 300;
   }
 
-  /* GRID */
+  /* MAIN GRID CONTAINER */
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -91,7 +91,14 @@
     background: #1a1a1a;
   }
 
-  /* CARD */
+  /* ITEM BLOCK - Ties card and label together */
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    background: #0a0a0a;
+  }
+
+  /* CARD WITH IMAGES */
   .card {
     background: #111;
     position: relative;
@@ -100,6 +107,7 @@
     aspect-ratio: 1;
     display: block;
     text-decoration: none;
+    width: 100%;
   }
 
   /* art image — always visible */
@@ -173,6 +181,8 @@
     justify-content: center;
     border: 1px dashed #222;
     cursor: default;
+    aspect-ratio: 1;
+    width: 100%;
   }
   .card-coming-inner { text-align: center; }
   .card-coming-inner .coming-title {
@@ -189,14 +199,7 @@
     text-transform: uppercase;
   }
 
-  /* LABEL ROW */
-  .label-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: #1a1a1a;
-    margin-bottom: 1px;
-  }
+  /* INTEGRATED LABEL STYLING */
   .label {
     background: #0a0a0a;
     padding: 13px 20px;
@@ -204,6 +207,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #3a3a3a;
+    border-top: 1px solid #1a1a1a;
   }
 
   /* FOOTER */
@@ -213,7 +217,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1px;
+    margin-top: 40px;
   }
   footer p { font-size: 10px; color: #2a2a2a; letter-spacing: 0.1em; }
   footer a {
@@ -231,12 +235,10 @@
     nav { padding: 20px 20px; }
     .hero { padding: 48px 20px 40px; }
     .grid { grid-template-columns: repeat(2, 1fr); }
-    .label-row { grid-template-columns: repeat(2, 1fr); }
     footer { padding: 32px 20px; flex-direction: column; gap: 12px; }
   }
   @media (max-width: 480px) {
     .grid { grid-template-columns: 1fr; }
-    .label-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -259,78 +261,86 @@
   <p class="hero-sub">The bands didn't make it, but the shirts did.</p>
 </div>
 
-<!-- ROW 1 -->
+<!-- ALL PRODUCTS GRID -->
 <div class="grid">
 
-  <a href="low-tee.html" class="card">
-    <img class="card-art" src="images/low-tee-art.jpg" alt="Low Tee shirt graphic">
-    <img class="card-model" src="images/low-tee-model.jpg" alt="Low Tee worn">
-    <div class="card-overlay">
-      <div class="card-name">Low Tee</div>
-      <span class="card-btn">View &amp; Shop</span>
+  <!-- ITEM 1 -->
+  <div class="product-item">
+    <a href="low-tee.html" class="card">
+      <img class="card-art" src="images/low-tee-art.jpg" alt="Low Tee shirt graphic">
+      <img class="card-model" src="images/low-tee-model.jpg" alt="Low Tee worn">
+      <div class="card-overlay">
+        <div class="card-name">Low Tee</div>
+        <span class="card-btn">View &amp; Shop</span>
+      </div>
+    </a>
+    <div class="label">Low Tee</div>
+  </div>
+
+  <!-- ITEM 2 -->
+  <div class="product-item">
+    <a href="sms.html" class="card">
+      <img class="card-art" src="images/sms-art.jpg" alt="Small Man Sandwich shirt graphic">
+      <div class="card-overlay">
+        <div class="card-name">Small Man Sandwich &amp; The Hooteneers</div>
+        <span class="card-btn">View &amp; Shop</span>
+      </div>
+    </a>
+    <div class="label">Small Man Sandwich &amp; The Hooteneers</div>
+  </div>
+
+  <!-- ITEM 3 -->
+  <div class="product-item">
+    <a href="supermans-dandy.html" class="card">
+      <img class="card-art" src="images/supermans-dandy-art.jpg" alt="Superman's Dandy shirt graphic">
+      <img class="card-model" src="images/supermans-dandy-model.jpg" alt="Superman's Dandy worn">
+      <div class="card-overlay">
+        <div class="card-name">Superman's Dandy</div>
+        <span class="card-btn">View &amp; Shop</span>
+      </div>
+    </a>
+    <div class="label">Superman's Dandy</div>
+  </div>
+
+  <!-- ITEM 4 -->
+  <div class="product-item">
+    <a href="walhongs.html" class="card">
+      <img class="card-art" src="images/walhongs-art.jpg" alt="The Walhongs shirt graphic">
+      <div class="card-overlay">
+        <div class="card-name">The Walhongs</div>
+        <span class="card-btn">View &amp; Shop</span>
+      </div>
+    </a>
+    <div class="label">The Walhongs</div>
+  </div>
+
+  <!-- ITEM 5 -->
+  <div class="product-item">
+    <a href="grandmas-boyfriend.html" class="card">
+      <img class="card-art" src="images/grandmas-boyfriend-art.jpg" alt="My Grandma's Boyfriend shirt graphic">
+      <div class="card-overlay">
+        <div class="card-name">My Grandma's Boyfriend</div>
+        <span class="card-btn">View &amp; Shop</span>
+      </div>
+    </a>
+    <div class="label">My Grandma's Boyfriend</div>
+  </div>
+
+  <!-- ITEM 6 (COMING SOON) -->
+  <div class="product-item">
+    <div class="card card-coming">
+      <div class="card-coming-inner">
+        <div class="coming-title">New Drop</div>
+        <div class="coming-sub">Coming Soon</div>
+      </div>
     </div>
-  </a>
-
-  <a href="sms.html" class="card">
-    <img class="card-art" src="images/sms-art.jpg" alt="Small Man Sandwich shirt graphic">
-    <!-- no model yet — art shows on hover too -->
-    <div class="card-overlay">
-      <div class="card-name">Small Man Sandwich &amp; The Hooteneers</div>
-      <span class="card-btn">View &amp; Shop</span>
-    </div>
-  </a>
-
-  <a href="supermans-dandy.html" class="card">
-    <img class="card-art" src="images/supermans-dandy-art.jpg" alt="Superman's Dandy shirt graphic">
-    <div class="card-overlay">
-      <div class="card-name">Superman's Dandy</div>
-      <span class="card-btn">View &amp; Shop</span>
-    </div>
-  </a>
-
-</div>
-<div class="label-row">
-  <div class="label">Low Tee</div>
-  <div class="label">Small Man Sandwich &amp; The Hooteneers</div>
-  <div class="label">Superman's Dandy</div>
-</div>
-
-<!-- ROW 2 -->
-<div class="grid">
-
-  <a href="walhongs.html" class="card">
-    <img class="card-art" src="images/walhongs-art.jpg" alt="The Walhongs shirt graphic">
-    <div class="card-overlay">
-      <div class="card-name">The Walhongs</div>
-      <span class="card-btn">View &amp; Shop</span>
-    </div>
-  </a>
-
-  <a href="grandmas-boyfriend.html" class="card">
-    <img class="card-art" src="images/grandmas-boyfriend-art.jpg" alt="My Grandma's Boyfriend shirt graphic">
-    <div class="card-overlay">
-      <div class="card-name">My Grandma's Boyfriend</div>
-      <span class="card-btn">View &amp; Shop</span>
-    </div>
-  </a>
-
-  <!-- COMING SOON placeholder -->
-  <div class="card card-coming" style="aspect-ratio:1;">
-    <div class="card-coming-inner">
-      <div class="coming-title">New Drop</div>
-      <div class="coming-sub">Coming Soon</div>
-    </div>
+    <div class="label">Coming Soon</div>
   </div>
 
 </div>
-<div class="label-row">
-  <div class="label">The Walhongs</div>
-  <div class="label">My Grandma's Boyfriend</div>
-  <div class="label">Coming Soon</div>
-</div>
 
 <footer>
-  <p>&copy; 2025 Unsigned Tees</p>
+  <p>&copy; <script>document.write(new Date().getFullYear());</script> Unsigned Tees</p>
   <a href="https://unsignedtees.shop" target="_blank">unsignedtees.shop</a>
 </footer>
 
